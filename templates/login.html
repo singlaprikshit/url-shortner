@@ -1,0 +1,56 @@
+<head>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+<link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+<link rel= "stylesheet" href='../static/css/login.css'>
+  
+</head>
+{% block body %}
+    <div class="container">
+        <div class="logo">
+            <img src="../static/css/logo.png" height="100" width="100">
+        </div>
+      <div class="sign-in" id="signIn">
+        <div class="visible" id="signIn-visible">
+          <i class="fa fa-sign-in fa-3x" aria-hidden="true"></i>
+          <h4 class="sign-in-text">Sign In</h4>
+        </div>
+        <div class="hidden" id="signIn-hidden">
+          <h1 class="sign-in-header">SIGN IN</h1>
+          <div class="signIn-section">
+            <form method="POST">
+              {{loginForm.username(class='name sign-in-input', placeholder="   Username")}}
+              {{loginForm.password(class='pass sign-in-input', placeholder="   Password")}}
+             <br>
+                
+                {{loginForm.submit(class='sign-in-button send')}}
+              <!-- <button type="submit" class="sign-in-button send">
+                <i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
+              </button> -->
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="sign-up" id="signUp">
+        <div class="visible" id="signUp-visible">
+          <i class="fa fa-user-plus fa-3x" aria-hidden="true"></i>
+          <h4 class="sign-up-text">Sign Up</h4>
+        </div>
+        <div class="hidden" id="signUp-hidden">
+          <h1 class="sign-up-header">SIGN UP</h1>
+          <div class="signUp-section">
+            <form method="POST">
+              {{signupForm.username(placeholder="   Username", class="sign-up-input name")}}
+              {{signupForm.password(placeholder="   Password", class="sign-up-input pass")}}
+              <button type="submit" class="sign-up-button send">
+                <i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+<script src="https://use.fontawesome.com/b077a438c4.js"></script>
+<script src="../static/js/login.js"></script>
+{{loginForm.csrf_token}}
+{{signupForm.csrf_token}}
+{% endblock %}
